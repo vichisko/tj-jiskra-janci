@@ -1,0 +1,65 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="cs">
+	<head>
+		<BaseHead
+			title={`Stolní tenis — ${SITE_TITLE}`}
+			description="Tréninky, soutěže a nábor nových hráčů stolního tenisu v TJ Jiskra Jančí."
+		/>
+		<style>
+			main {
+				width: calc(100% - 2em);
+				max-width: 720px;
+				margin: 2em auto;
+				padding: 0 1em;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Stolní tenis v Jančí</h1>
+			<p>
+				Hlavní disciplína klubu. Tréninky probíhají v herně TJ Jiskra Jančí, hlavním trenérem
+				dětí, dorostu i dospělých je Miroslav Vícha.
+			</p>
+
+			<h2>Tréninky</h2>
+			<ul>
+				<li>Děti a dorost: pondělí 16:30–18:30</li>
+				<li>Dospělí: pondělí po dětech (od 18:30)</li>
+				<li>Domácí zápasy mládeže: úterý</li>
+			</ul>
+
+			<h2>Soutěže — dospělí</h2>
+			<ul>
+				<li>Okresní přebor 2.&nbsp;třídy</li>
+				<li>Okresní přebor 3.&nbsp;třídy</li>
+				<li>Liga Moravy a Slezska</li>
+			</ul>
+
+			<h2>Soutěže — mládež</h2>
+			<ul>
+				<li>Tři okresní bodovací turnaje</li>
+				<li>Krajský přebor středisek volného času</li>
+				<li>Liga Moravy a Slezska — dorost</li>
+				<li>Okresní přebor I.&nbsp;třídy pro okres Opava (sezóna 2023/2024)</li>
+				<li>Tradiční účast na turnajích v Radkově a Klokočově</li>
+			</ul>
+
+			<h2>Možnosti</h2>
+			<p>
+				Hledáme nové hráče v každé věkové kategorii — pro děti od osmi&nbsp;let i pro dospělé bez
+				zkušeností. Hernu lze také pronajmout pro vlastní potřebu (skupiny, narozeniny, firemní
+				akce). Kontaktujte nás přes formulář nebo přímo Miroslava Víchu.
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>

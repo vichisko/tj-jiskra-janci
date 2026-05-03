@@ -1,0 +1,59 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="cs">
+	<head>
+		<BaseHead
+			title={`Kontakt — ${SITE_TITLE}`}
+			description="Kontaktní informace TJ Jiskra Jančí, z. s."
+		/>
+		<style>
+			main {
+				width: calc(100% - 2em);
+				max-width: 720px;
+				margin: 2em auto;
+				padding: 0 1em;
+			}
+			address {
+				font-style: normal;
+				margin-bottom: 1.5rem;
+				line-height: 1.8;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Kontakt</h1>
+			<address>
+				<strong>Tělovýchovná jednota Jiskra Jančí, z.&nbsp;s.</strong><br />
+				Jančí, městys Březová<br />
+				okres Opava
+			</address>
+			<ul>
+				<li><strong>Předseda:</strong> Miroslav Čech</li>
+				<li>
+					<strong>Ředitel stolního tenisu</strong> (kontakt pro nábor a pronájem herny):
+					Miroslav Vícha
+				</li>
+			</ul>
+			<p>
+				Členství v České unii sportu:
+				<a href="https://iscus.cz/web/sportovni-subjekty/3806101" target="_blank" rel="noopener">
+					iscus.cz/web/sportovni-subjekty/3806101
+				</a>
+			</p>
+			<p>
+				<em>
+					Konkrétní e-mailové a telefonické kontakty budou doplněny po konzultaci s výborem.
+				</em>
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>

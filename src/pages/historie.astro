@@ -1,0 +1,86 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="cs">
+	<head>
+		<BaseHead
+			title={`Historie — ${SITE_TITLE}`}
+			description="Padesát let Jiskry — historie sportovního klubu TJ Jiskra Jančí od roku 1976."
+		/>
+		<style>
+			main {
+				width: calc(100% - 2em);
+				max-width: 720px;
+				margin: 2em auto;
+				padding: 0 1em;
+			}
+			.entry {
+				margin-bottom: 2.5rem;
+			}
+			.entry h2 {
+				border-left: 4px solid rgb(var(--accent));
+				padding-left: 0.75rem;
+				margin-bottom: 0.5rem;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Padesát let Jiskry</h1>
+
+			<div class="entry">
+				<h2>1976 — vznik klubu</h2>
+				<p>
+					Tělovýchovná jednota vzniká na podzim 1976 v době pozdní normalizace. Prvním předsedou se
+					stává Miroslav Vícha. Název spolku je převzat po zaniklém volejbalovém oddílu, který
+					v Jančí dříve působil. Klub získává od rodiny Pretschových plochu pro fotbalové hřiště
+					a tenis.
+				</p>
+			</div>
+
+			<div class="entry">
+				<h2>1977 — první Globus, první pingpong</h2>
+				<p>
+					Koná se první ročník fotbalového turnaje malé kopané, dnes známého pod názvem Globus.
+					V tomtéž roce se v Jančí začíná aktivně hrát stolní tenis — první stůl stojí na statku
+					jednoho ze členů. Hráči ze širšího Opavska sem jezdí na pingpong jako na atrakci.
+				</p>
+			</div>
+
+			<div class="entry">
+				<h2>1980 — tenisové kurty</h2>
+				<p>
+					Začíná výstavba tenisových kurtů, na nichž se několik let hraje i závodně. Kurty se
+					stávají vyhlášenými v širokém okolí, postupně však kvůli nákladům na údržbu klesají na
+					rekreační úroveň.
+				</p>
+			</div>
+
+			<div class="entry">
+				<h2>Kolem roku 2000 — herna pro stolní tenis</h2>
+				<p>
+					Obecní budova přechází do majetku TJ. Začíná dlouhodobá rekonstrukce pod vedením
+					Miroslava Víchy — zateplení, oprava střechy, gumový povrch hracích ploch. Práce probíhají
+					dodnes, vždy svépomocí členů.
+				</p>
+			</div>
+
+			<div class="entry">
+				<h2>Současnost</h2>
+				<p>
+					Klub má šedesát&nbsp;dva členů. Stolní tenis staví tři družstva — více než řada měst
+					desetinásobné velikosti. Předsedou je již dvacet&nbsp;šest let Miroslav Čech. V roce 2026
+					si klub připomíná padesáté výročí existence; zároveň pořádá padesátý ročník turnaje
+					Globus.
+				</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

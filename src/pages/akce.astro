@@ -1,0 +1,51 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="cs">
+	<head>
+		<BaseHead
+			title={`Akce — ${SITE_TITLE}`}
+			description="Každoroční sportovní a kulturní akce TJ Jiskra Jančí otevřené celému Březovsku."
+		/>
+		<style>
+			main {
+				width: calc(100% - 2em);
+				max-width: 720px;
+				margin: 2em auto;
+				padding: 0 1em;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Tradiční akce</h1>
+			<p>
+				Tělovýchovná jednota každoročně pořádá několik sportovních a kulturních událostí, které
+				jsou otevřené nejen členům, ale celému Březovsku.
+			</p>
+			<ul>
+				<li><strong>Velikonoční turnaj ve stolním tenisu</strong> — jaro</li>
+				<li><strong>Sportovní den dětí</strong> — jaro/léto</li>
+				<li><strong>Výlet s mládeží do okolí</strong> — léto</li>
+				<li>
+					<strong>Globus</strong> — fotbalový turnaj v malé kopané, padesátý ročník v roce 2026
+				</li>
+				<li><strong>Dětský den pro děti z širokého okolí Březovska</strong> — léto</li>
+				<li>
+					<strong>Vánoční turnaj ve stolním tenisu pro děti a mládež</strong> — prosinec
+				</li>
+			</ul>
+			<p>
+				Mimo pravidelný kalendář vzniká po odhlasování na výborové schůzi i řada jednorázových
+				akcí — například letní kino v roce 2023.
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
