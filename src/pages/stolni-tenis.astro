@@ -1,8 +1,14 @@
 ---
+import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
+
+import bannerImg from '../assets/photos/herna-zevnitr.jpg';
+import treninkyImg from '../assets/photos/stolni-tenis-deti-turnaj.jpg';
+import mladezImg from '../assets/photos/stolni-tenis-stupni-vitezu.jpg';
+import dospelijImg from '../assets/photos/tym-stolni-tenis.webp';
 ---
 
 <!doctype html>
@@ -13,16 +19,78 @@ import { SITE_TITLE } from '../consts';
 			description="Tréninky, soutěže a nábor nových hráčů stolního tenisu v TJ Jiskra Jančí."
 		/>
 		<style>
+			.page-banner {
+				width: 100%;
+				max-height: 420px;
+				overflow: hidden;
+				position: relative;
+			}
+
+			.page-banner :global(img) {
+				width: 100%;
+				height: 420px;
+				object-fit: cover;
+				border-radius: 0;
+				display: block;
+			}
+
+			.page-banner figcaption {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				padding: 0.75em 1.5em;
+				background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
+				color: rgba(255, 255, 255, 0.9);
+				font-size: 0.85em;
+				font-style: italic;
+			}
+
 			main {
 				width: calc(100% - 2em);
 				max-width: 720px;
-				margin: 2em auto;
-				padding: 0 1em;
+				margin: 0 auto;
+				padding: 3em 1em;
+			}
+
+			.section-photo {
+				margin: 1.5rem 0 2rem;
+				border-radius: 8px;
+				overflow: hidden;
+			}
+
+			.section-photo :global(img) {
+				width: 100%;
+				height: auto;
+				border-radius: 8px;
+				display: block;
+			}
+
+			.section-photo figcaption {
+				margin-top: 0.5rem;
+				font-size: 0.85em;
+				color: var(--color-gray-medium);
+				font-style: italic;
+				text-align: center;
+			}
+
+			h2 {
+				margin-top: 2.5rem;
+			}
+
+			h2:first-of-type {
+				margin-top: 1.5rem;
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
+
+		<figure class="page-banner">
+			<Image src={bannerImg} alt="Herna TJ Jiskra Jančí" width={1200} height={420} />
+			<figcaption>Herna TJ Jiskra Jančí</figcaption>
+		</figure>
+
 		<main>
 			<h1>Stolní tenis v Jančí</h1>
 			<p>
@@ -31,26 +99,53 @@ import { SITE_TITLE } from '../consts';
 			</p>
 
 			<h2>Tréninky</h2>
+			<figure class="section-photo">
+				<Image
+					src={treninkyImg}
+					alt="Mládežnický trénink v herně"
+					width={720}
+					height={480}
+				/>
+				<figcaption>Mládežnický trénink v herně</figcaption>
+			</figure>
 			<ul>
 				<li>Děti a dorost: pondělí 16:30–18:30</li>
 				<li>Dospělí: pondělí po dětech (od 18:30)</li>
 				<li>Domácí zápasy mládeže: úterý</li>
 			</ul>
 
-			<h2>Soutěže — dospělí</h2>
-			<ul>
-				<li>Okresní přebor 2.&nbsp;třídy</li>
-				<li>Okresní přebor 3.&nbsp;třídy</li>
-				<li>Liga Moravy a Slezska</li>
-			</ul>
-
 			<h2>Soutěže — mládež</h2>
+			<figure class="section-photo">
+				<Image
+					src={mladezImg}
+					alt="Mladí hráči Jiskry s diplomy"
+					width={720}
+					height={480}
+				/>
+				<figcaption>Mladí hráči Jiskry s diplomy</figcaption>
+			</figure>
 			<ul>
 				<li>Tři okresní bodovací turnaje</li>
 				<li>Krajský přebor středisek volného času</li>
 				<li>Liga Moravy a Slezska — dorost</li>
 				<li>Okresní přebor I.&nbsp;třídy pro okres Opava (sezóna 2023/2024)</li>
 				<li>Tradiční účast na turnajích v Radkově a Klokočově</li>
+			</ul>
+
+			<h2>Soutěže — dospělí</h2>
+			<figure class="section-photo">
+				<Image
+					src={dospelijImg}
+					alt="Tým TJ Jiskra Jančí, sezona 2024"
+					width={720}
+					height={480}
+				/>
+				<figcaption>Tým TJ Jiskra Jančí, sezona 2024</figcaption>
+			</figure>
+			<ul>
+				<li>Okresní přebor 2.&nbsp;třídy</li>
+				<li>Okresní přebor 3.&nbsp;třídy</li>
+				<li>Liga Moravy a Slezska</li>
 			</ul>
 
 			<h2>Možnosti</h2>
@@ -60,6 +155,7 @@ import { SITE_TITLE } from '../consts';
 				akce). Kontaktujte nás přes formulář nebo přímo Miroslava Víchu.
 			</p>
 		</main>
+
 		<Footer />
 	</body>
 </html>

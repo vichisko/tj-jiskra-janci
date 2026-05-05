@@ -1,8 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
+
+import bannerImg from '../assets/photos/stolni-tenis-turnaj.jpg';
 ---
 
 <!doctype html>
@@ -13,24 +16,65 @@ import { SITE_TITLE } from '../consts';
 			description="Padesát let Jiskry — historie sportovního klubu TJ Jiskra Jančí od roku 1976."
 		/>
 		<style>
+			.page-banner {
+				width: 100%;
+				max-height: 420px;
+				overflow: hidden;
+				position: relative;
+			}
+
+			.page-banner :global(img) {
+				width: 100%;
+				height: 420px;
+				object-fit: cover;
+				border-radius: 0;
+				display: block;
+			}
+
+			.page-banner figcaption {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				padding: 0.75em 1.5em;
+				background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
+				color: rgba(255, 255, 255, 0.9);
+				font-size: 0.85em;
+				font-style: italic;
+			}
+
 			main {
 				width: calc(100% - 2em);
 				max-width: 720px;
-				margin: 2em auto;
-				padding: 0 1em;
+				margin: 0 auto;
+				padding: 3em 1em;
 			}
+
 			.entry {
 				margin-bottom: 2.5rem;
 			}
+
 			.entry h2 {
-				border-left: 4px solid rgb(var(--accent));
+				border-left: 4px solid var(--color-primary);
 				padding-left: 0.75rem;
 				margin-bottom: 0.5rem;
+				margin-top: 2.5rem;
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
+
+		<figure class="page-banner">
+			<Image
+				src={bannerImg}
+				alt="Mladí hráči Jiskry na turnaji v Hradci nad Moravicí"
+				width={1200}
+				height={420}
+			/>
+			<figcaption>Mladí hráči Jiskry na turnaji v Hradci nad Moravicí</figcaption>
+		</figure>
+
 		<main>
 			<h1>Padesát let Jiskry</h1>
 
@@ -81,6 +125,7 @@ import { SITE_TITLE } from '../consts';
 				</p>
 			</div>
 		</main>
+
 		<Footer />
 	</body>
 </html>

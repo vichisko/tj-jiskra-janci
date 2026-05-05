@@ -1,8 +1,17 @@
 ---
+import { Image, getImage } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+import heroImg from '../assets/photos/stolni-tenis-hra.webp';
+import cardImg1 from '../assets/photos/tym-stolni-tenis.webp';
+import cardImg2 from '../assets/photos/detsky-den-diplomy.webp';
+import cardImg3 from '../assets/photos/detsky-den-vsichni.webp';
+
+const optimizedHero = await getImage({ src: heroImg, width: 1920, quality: 80 });
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!doctype html>
@@ -10,72 +19,286 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
-			main {
-				max-width: 720px;
-				margin: 0 auto;
-				padding: 1em 1em 3em;
-			}
-			.subtitle {
-				font-style: italic;
-				color: rgb(var(--gray));
-				margin-top: -0.5em;
-			}
-			.cards {
+			/* Hero */
+			.hero {
+				position: relative;
+				min-height: 70vh;
 				display: flex;
-				gap: 1.5rem;
-				flex-wrap: wrap;
-				margin-top: 2.5rem;
+				align-items: center;
+				background-size: cover;
+				background-position: center;
+				overflow: hidden;
 			}
-			.card {
-				flex: 1 1 180px;
-				padding: 1.5rem;
-				border: 1px solid rgb(var(--gray-light));
+
+			.hero::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: rgba(10, 10, 10, 0.55);
+			}
+
+			.hero-content {
+				position: relative;
+				z-index: 1;
+				width: 100%;
+				max-width: 860px;
+				margin: 0 auto;
+				padding: 6rem 2rem;
+				text-align: center;
+				color: var(--color-white);
+			}
+
+			.hero-title {
+				font-size: clamp(1.9rem, 5vw, 3.4rem);
+				font-weight: 700;
+				line-height: 1.1;
+				margin-bottom: 1rem;
+				letter-spacing: -0.03em;
+				color: var(--color-white);
+			}
+
+			.hero-subtitle {
+				font-size: clamp(1rem, 2.5vw, 1.3rem);
+				font-weight: 400;
+				opacity: 0.85;
+				margin-bottom: 0;
+				color: var(--color-white);
+			}
+
+			.hero-tagline {
+				font-size: 0.85rem;
+				font-weight: 600;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				margin-bottom: 2.5rem;
+				padding-top: 2rem;
+				position: relative;
+				color: rgba(255, 255, 255, 0.65);
+			}
+
+			.hero-tagline::before {
+				content: '';
+				display: block;
+				width: 40px;
+				height: 3px;
+				background: var(--color-primary);
+				margin: 0 auto 1.25rem;
+			}
+
+			.hero-buttons {
+				display: flex;
+				gap: 1rem;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+
+			.btn-primary {
+				display: inline-block;
+				padding: 0.85em 2.2em;
+				background: var(--color-primary);
+				color: var(--color-white);
+				text-decoration: none;
+				border-radius: 4px;
+				font-weight: 600;
+				font-size: 1rem;
+				border: 2px solid var(--color-primary);
+				transition:
+					background 0.2s,
+					border-color 0.2s,
+					transform 0.15s;
+			}
+
+			.btn-primary:hover {
+				background: #a31830;
+				border-color: #a31830;
+				transform: translateY(-2px);
+			}
+
+			.btn-secondary {
+				display: inline-block;
+				padding: 0.85em 2.2em;
+				background: transparent;
+				color: var(--color-white);
+				text-decoration: none;
+				border-radius: 4px;
+				font-weight: 600;
+				font-size: 1rem;
+				border: 2px solid rgba(255, 255, 255, 0.65);
+				transition:
+					border-color 0.2s,
+					background 0.2s,
+					transform 0.15s;
+			}
+
+			.btn-secondary:hover {
+				border-color: var(--color-white);
+				background: rgba(255, 255, 255, 0.1);
+				transform: translateY(-2px);
+			}
+
+			/* Feature cards */
+			.features {
+				padding: 5rem 1.5rem;
+				background: var(--color-gray-light);
+			}
+
+			.features-inner {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+
+			.features-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 2rem;
+			}
+
+			.feature-card {
+				background: var(--color-white);
 				border-radius: 8px;
+				overflow: hidden;
 				text-decoration: none;
 				color: inherit;
-				transition: box-shadow 0.2s;
-			}
-			.card:hover {
 				box-shadow: var(--box-shadow);
+				transition:
+					transform 0.25s,
+					box-shadow 0.25s;
+				display: block;
 			}
-			.card h3 {
-				margin: 0 0 0.5rem 0;
-				color: rgb(var(--accent));
+
+			.feature-card:hover {
+				transform: translateY(-4px);
+				box-shadow: var(--box-shadow-hover);
 			}
-			.card p {
+
+			.feature-card-img {
+				aspect-ratio: 16 / 10;
+				overflow: hidden;
+			}
+
+			.feature-card-img :global(img) {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				border-radius: 0;
+				transition: transform 0.4s ease;
+				display: block;
+			}
+
+			.feature-card:hover .feature-card-img :global(img) {
+				transform: scale(1.04);
+			}
+
+			.feature-card-body {
+				padding: 1.5rem;
+			}
+
+			.feature-card-body h3 {
+				font-size: 1.15rem;
+				margin-bottom: 0.5rem;
+				color: var(--color-black);
+			}
+
+			.feature-card-body p {
 				margin: 0;
-				color: rgb(var(--gray-dark));
-				font-size: 0.9em;
+				font-size: 0.9rem;
+				color: var(--color-gray-medium);
+				line-height: 1.55;
+			}
+
+			@media (max-width: 900px) {
+				.features-grid {
+					grid-template-columns: 1fr;
+					max-width: 540px;
+					margin: 0 auto;
+				}
+			}
+
+			@media (max-width: 600px) {
+				.hero {
+					min-height: 60vh;
+				}
+
+				.features {
+					padding: 3rem 1.25rem;
+				}
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>Tělovýchovná jednota Jiskra Jančí</h1>
-			<p class="subtitle">Padesát let sportu ve vesnici se 170&nbsp;obyvateli</p>
-			<p>
-				Jsme sportovní oddíl s téměř padesátiletou tradicí. Hlavní disciplínou je stolní tenis —
-				staví tři družstva v&nbsp;okresních a&nbsp;krajských soutěžích a&nbsp;pravidelně zapojujeme
-				děti i&nbsp;dorost. Pořádáme tradiční turnaj malé kopané Globus, jehož padesátý ročník
-				proběhne v&nbsp;roce 2026, a&nbsp;celou řadu dalších sportovních a&nbsp;kulturních akcí pro
-				obyvatele Jančí a&nbsp;okolí.
-			</p>
-			<div class="cards">
-				<a class="card" href={`${import.meta.env.BASE_URL}stolni-tenis`}>
-					<h3>Stolní tenis</h3>
-					<p>Tréninky, soutěže a nábor nových hráčů.</p>
-				</a>
-				<a class="card" href={`${import.meta.env.BASE_URL}akce`}>
-					<h3>Akce a&nbsp;turnaje</h3>
-					<p>Turnaj Globus, sportovní den dětí a&nbsp;další každoroční akce.</p>
-				</a>
-				<a class="card" href={`${import.meta.env.BASE_URL}historie`}>
-					<h3>Historie klubu</h3>
-					<p>Padesát let Jiskry od vzniku v&nbsp;roce 1976.</p>
-				</a>
+
+		<section class="hero" style={`background-image: url('${optimizedHero.src}')`}>
+			<div class="hero-content">
+				<h1 class="hero-title">Tělovýchovná jednota Jiskra Jančí</h1>
+				<p class="hero-subtitle">Padesát let sportu ve vesnici se 170&nbsp;obyvateli</p>
+				<p class="hero-tagline">Společně k aktivnímu životnímu stylu</p>
+				<div class="hero-buttons">
+					<a href={`${base}/about`} class="btn-primary">O klubu</a>
+					<a href={`${base}/stolni-tenis`} class="btn-secondary">Stolní tenis</a>
+				</div>
 			</div>
-		</main>
+		</section>
+
+		<section class="features">
+			<div class="features-inner">
+				<div class="features-grid">
+					<a class="feature-card" href={`${base}/stolni-tenis`}>
+						<div class="feature-card-img">
+							<Image
+								src={cardImg1}
+								alt="Tým stolního tenisu TJ Jiskra Jančí"
+								width={600}
+								height={375}
+							/>
+						</div>
+						<div class="feature-card-body">
+							<h3>Stolní tenis</h3>
+							<p>
+								Tři družstva v&nbsp;okresních a&nbsp;krajských soutěžích. Aktivní mládežnická sekce,
+								tréninky každé pondělí.
+							</p>
+						</div>
+					</a>
+
+					<a class="feature-card" href={`${base}/akce`}>
+						<div class="feature-card-img">
+							<Image
+								src={cardImg2}
+								alt="Akce a turnaje TJ Jiskra Jančí"
+								width={600}
+								height={375}
+							/>
+						</div>
+						<div class="feature-card-body">
+							<h3>Akce a turnaje</h3>
+							<p>
+								Globus, Velikonoční turnaj, Dětský den, Vánoční turnaj. Sportovní život pro celé
+								Březovsko.
+							</p>
+						</div>
+					</a>
+
+					<a class="feature-card" href={`${base}/historie`}>
+						<div class="feature-card-img">
+							<Image
+								src={cardImg3}
+								alt="Padesát let TJ Jiskra Jančí"
+								width={600}
+								height={375}
+							/>
+						</div>
+						<div class="feature-card-body">
+							<h3>Padesát let klubu</h3>
+							<p>
+								Od roku 1976 dodnes. Více než třetina obyvatel Jančí jsou členy oddílu.
+							</p>
+						</div>
+					</a>
+				</div>
+			</div>
+		</section>
+
 		<Footer />
 	</body>
 </html>

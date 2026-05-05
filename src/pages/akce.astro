@@ -1,8 +1,16 @@
 ---
+import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
+
+import img1 from '../assets/photos/detsky-den-diplomy.webp';
+import img2 from '../assets/photos/maskot-detsky-den.webp';
+import img3 from '../assets/photos/detsky-den-maskot.webp';
+import img4 from '../assets/photos/sportovni-den-deti-tunel.webp';
+import img5 from '../assets/photos/detsky-den-rodic-dite.webp';
+import img6 from '../assets/photos/oceneni-pro-hrace.jpg';
 ---
 
 <!doctype html>
@@ -16,13 +24,77 @@ import { SITE_TITLE } from '../consts';
 			main {
 				width: calc(100% - 2em);
 				max-width: 720px;
-				margin: 2em auto;
-				padding: 0 1em;
+				margin: 0 auto;
+				padding: 3em 1em 2em;
+			}
+
+			.gallery-section {
+				padding: 3rem 1.5rem 5rem;
+				background: var(--color-gray-light);
+			}
+
+			.gallery-inner {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+
+			.gallery-section h2 {
+				margin-bottom: 2rem;
+				color: var(--color-black);
+			}
+
+			.gallery-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.25rem;
+			}
+
+			.gallery-item {
+				border-radius: 8px;
+				overflow: hidden;
+				background: var(--color-white);
+				box-shadow: var(--box-shadow);
+				transition:
+					transform 0.25s,
+					box-shadow 0.25s;
+			}
+
+			.gallery-item:hover {
+				transform: translateY(-3px);
+				box-shadow: var(--box-shadow-hover);
+			}
+
+			.gallery-item :global(img) {
+				width: 100%;
+				aspect-ratio: 4 / 3;
+				object-fit: cover;
+				border-radius: 0;
+				display: block;
+			}
+
+			.gallery-item figcaption {
+				padding: 0.6rem 0.9rem;
+				font-size: 0.82em;
+				color: var(--color-gray-medium);
+				font-style: italic;
+			}
+
+			@media (max-width: 900px) {
+				.gallery-grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
+			}
+
+			@media (max-width: 540px) {
+				.gallery-grid {
+					grid-template-columns: 1fr;
+				}
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
+
 		<main>
 			<h1>Tradiční akce</h1>
 			<p>
@@ -46,6 +118,39 @@ import { SITE_TITLE } from '../consts';
 				akcí — například letní kino v roce 2023.
 			</p>
 		</main>
+
+		<section class="gallery-section">
+			<div class="gallery-inner">
+				<h2>Fotogalerie</h2>
+				<div class="gallery-grid">
+					<figure class="gallery-item">
+						<Image src={img1} alt="Globus — vyhlášení vítězů" width={500} height={375} />
+						<figcaption>Globus — vyhlášení vítězů</figcaption>
+					</figure>
+					<figure class="gallery-item">
+						<Image src={img2} alt="Dětský den" width={500} height={375} />
+						<figcaption>Dětský den</figcaption>
+					</figure>
+					<figure class="gallery-item">
+						<Image src={img3} alt="Dětský den — předávání cen" width={500} height={375} />
+						<figcaption>Dětský den — předávání cen</figcaption>
+					</figure>
+					<figure class="gallery-item">
+						<Image src={img4} alt="Sportovní den dětí" width={500} height={375} />
+						<figcaption>Sportovní den dětí</figcaption>
+					</figure>
+					<figure class="gallery-item">
+						<Image src={img5} alt="Sportovní den dětí" width={500} height={375} />
+						<figcaption>Sportovní den dětí</figcaption>
+					</figure>
+					<figure class="gallery-item">
+						<Image src={img6} alt="Vánoční turnaj" width={500} height={375} />
+						<figcaption>Vánoční turnaj</figcaption>
+					</figure>
+				</div>
+			</div>
+		</section>
+
 		<Footer />
 	</body>
 </html>

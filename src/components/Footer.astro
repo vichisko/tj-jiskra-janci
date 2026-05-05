@@ -1,14 +1,96 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/photos/logo-tj-jiskra-janci.jpg';
 ---
 
 <footer>
-	&copy; 2026 TJ Jiskra Jančí, z.&nbsp;s.
+	<div class="footer-inner">
+		<div class="footer-left">
+			<Image src={logo} alt="TJ Jiskra Jančí" height={40} class="footer-logo" />
+			<span class="copyright">© 2026 Tělovýchovná jednota Jiskra Jančí, z.&nbsp;s.</span>
+		</div>
+		<div class="footer-right">
+			<em class="motto">Společně k aktivnímu životnímu stylu</em>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<a
+			href="https://iscus.cz/web/sportovni-subjekty/3806101"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			Členem České unie sportu
+		</a>
+	</div>
 </footer>
+
 <style>
 	footer {
-		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
-		color: rgb(var(--gray));
+		background: var(--color-black);
+		color: var(--color-white);
+		padding: 2.5em 1.5em 1.5em;
+	}
+
+	.footer-inner {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 1em;
+		padding-bottom: 1.5em;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.footer-left {
+		display: flex;
+		align-items: center;
+		gap: 1em;
+		flex-wrap: wrap;
+	}
+
+	.footer-logo {
+		height: 40px;
+		width: auto;
+		border-radius: 0;
+		display: block;
+		filter: brightness(0) invert(1);
+		opacity: 0.85;
+	}
+
+	.copyright {
+		font-size: 0.875em;
+		color: rgba(255, 255, 255, 0.75);
+	}
+
+	.motto {
+		font-size: 0.9em;
+		color: rgba(255, 255, 255, 0.55);
+		font-style: italic;
+	}
+
+	.footer-bottom {
+		max-width: 1200px;
+		margin: 1.25em auto 0;
 		text-align: center;
+	}
+
+	.footer-bottom a {
+		font-size: 0.8em;
+		color: rgba(255, 255, 255, 0.35);
+		text-decoration: none;
+		transition: color 0.2s;
+	}
+
+	.footer-bottom a:hover {
+		color: rgba(255, 255, 255, 0.65);
+	}
+
+	@media (max-width: 600px) {
+		.footer-inner {
+			flex-direction: column;
+			align-items: flex-start;
+		}
 	}
 </style>
