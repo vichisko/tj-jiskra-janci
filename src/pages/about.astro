@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
 
-import bannerImg from '../assets/photos/tym-stolni-tenis.webp';
+import teamImg from '../assets/photos/tym-stolni-tenis.webp';
 ---
 
 <!doctype html>
@@ -13,56 +13,50 @@ import bannerImg from '../assets/photos/tym-stolni-tenis.webp';
 	<head>
 		<BaseHead
 			title={`O klubu — ${SITE_TITLE}`}
-			description="Historie a složení výboru TJ Jiskra Jančí, z. s."
+			description="O TJ Jiskra Jančí — lidé, zařízení a partneři sportovního klubu."
 		/>
 		<style>
-			.page-banner {
-				width: 100%;
-				max-height: 420px;
-				overflow: hidden;
-				position: relative;
-			}
-
-			.page-banner :global(img) {
-				width: 100%;
-				height: 420px;
-				object-fit: cover;
-				border-radius: 0;
-				display: block;
-			}
-
-			.page-banner figcaption {
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				right: 0;
-				padding: 0.75em 1.5em;
-				background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
-				color: rgba(255, 255, 255, 0.9);
-				font-size: 0.85em;
-				font-style: italic;
-			}
-
 			main {
 				width: calc(100% - 2em);
 				max-width: 720px;
 				margin: 0 auto;
 				padding: 3em 1em;
 			}
+
+			/* Org tree — break out of main's 1em side padding so SVG fills full main width */
+			.org-tree-wrap {
+				margin: 1.5rem -1em 2rem;
+				overflow-x: auto;
+				-webkit-overflow-scrolling: touch;
+			}
+
+			.org-tree-wrap svg {
+				display: block;
+				min-width: 720px;
+				margin: 0 auto;
+			}
+
+			.team-photo {
+				margin: 0.75rem 0 2rem;
+			}
+
+			.team-photo :global(img) {
+				width: 100%;
+				border-radius: 8px;
+				display: block;
+			}
+
+			.team-photo figcaption {
+				margin-top: 0.5rem;
+				font-size: 0.85em;
+				color: var(--color-gray-medium);
+				font-style: italic;
+				text-align: center;
+			}
 		</style>
 	</head>
 	<body>
 		<Header />
-
-		<figure class="page-banner">
-			<Image
-				src={bannerImg}
-				alt="Členové oddílu stolního tenisu, 2024"
-				width={1200}
-				height={420}
-			/>
-			<figcaption>Členové oddílu stolního tenisu, 2024</figcaption>
-		</figure>
 
 		<main>
 			<h1>o klubu</h1>
@@ -79,19 +73,179 @@ import bannerImg from '../assets/photos/tym-stolni-tenis.webp';
 				a&nbsp;Slezska pro dorost. Vedle stolního tenisu klub pořádá tradiční fotbalový turnaj
 				Globus a&nbsp;pravidelné kulturní akce pro děti a&nbsp;širokou veřejnost.
 			</p>
-			<h2>výbor TJ Jiskra Jančí</h2>
-			<ul>
-				<li><strong>Předseda:</strong> Miroslav Čech</li>
-				<li><strong>Místopředseda:</strong> Vít Minařík</li>
-				<li><strong>Jednatelka:</strong> Ing. Petra Sommer</li>
-				<li><strong>Finanční hospodářka:</strong> Ing. Nikola Černohorská</li>
-				<li><strong>Kulturní hospodář:</strong> Jakub Slezák</li>
-				<li><strong>Ředitel stolního tenisu:</strong> Miroslav Vícha</li>
-				<li>
-					<strong>Další členové výboru:</strong> Zbyněk Hanák, Jiří Černohorský, Zdeněk Sommer,
-					Lucie Haasová, Jaroslav Čech, Pavel Čech
-				</li>
-			</ul>
+
+			<h2>lidé klubu</h2>
+
+			<!--
+				Org tree — inline SVG, 720px coordinate space.
+				Levels:  L1 y=68  L2 y=242  L3 y=396
+				Trunks:  L1→L2 at y=161  L2→L3 at y=323
+			-->
+			<div class="org-tree-wrap">
+				<svg
+					width="720"
+					height="475"
+					viewBox="0 0 720 475"
+					font-family="'Inter Variable', Inter, sans-serif"
+					aria-label="Organizační strom TJ Jiskra Jančí"
+					role="img"
+				>
+					<!-- ── Connector lines ── -->
+					<g stroke="#888888" stroke-opacity="0.45" stroke-width="1.5" fill="none">
+						<!-- L1 → trunk at y=161 → L2 -->
+						<line x1="180" y1="116" x2="180" y2="161"/>
+						<line x1="540" y1="116" x2="540" y2="161"/>
+						<line x1="90"  y1="161" x2="630" y2="161"/>
+						<line x1="90"  y1="161" x2="90"  y2="206"/>
+						<line x1="270" y1="161" x2="270" y2="206"/>
+						<line x1="450" y1="161" x2="450" y2="206"/>
+						<line x1="630" y1="161" x2="630" y2="206"/>
+						<!-- L2 → trunk at y=323 → L3 -->
+						<line x1="90"  y1="278" x2="90"  y2="323"/>
+						<line x1="270" y1="278" x2="270" y2="323"/>
+						<line x1="450" y1="278" x2="450" y2="323"/>
+						<line x1="630" y1="278" x2="630" y2="323"/>
+						<line x1="60"  y1="323" x2="660" y2="323"/>
+						<line x1="60"  y1="323" x2="60"  y2="368"/>
+						<line x1="180" y1="323" x2="180" y2="368"/>
+						<line x1="300" y1="323" x2="300" y2="368"/>
+						<line x1="420" y1="323" x2="420" y2="368"/>
+						<line x1="540" y1="323" x2="540" y2="368"/>
+						<line x1="660" y1="323" x2="660" y2="368"/>
+					</g>
+
+					<!-- ── L1 circles (r=48, red border) ── -->
+					<circle cx="180" cy="68" r="48" fill="white" stroke="#C41E3A" stroke-width="3"/>
+					<circle cx="540" cy="68" r="48" fill="white" stroke="#C41E3A" stroke-width="3"/>
+
+					<!-- ── L2 circles (r=36, dark border) ── -->
+					<circle cx="90"  cy="242" r="36" fill="white" stroke="#1a1a1a" stroke-width="2"/>
+					<circle cx="270" cy="242" r="36" fill="white" stroke="#1a1a1a" stroke-width="2"/>
+					<circle cx="450" cy="242" r="36" fill="white" stroke="#1a1a1a" stroke-width="2"/>
+					<circle cx="630" cy="242" r="36" fill="white" stroke="#1a1a1a" stroke-width="2"/>
+
+					<!-- ── L3 circles (r=28, gray border) ── -->
+					<circle cx="60"  cy="396" r="28" fill="white" stroke="#888888" stroke-width="1"/>
+					<circle cx="180" cy="396" r="28" fill="white" stroke="#888888" stroke-width="1"/>
+					<circle cx="300" cy="396" r="28" fill="white" stroke="#888888" stroke-width="1"/>
+					<circle cx="420" cy="396" r="28" fill="white" stroke="#888888" stroke-width="1"/>
+					<circle cx="540" cy="396" r="28" fill="white" stroke="#888888" stroke-width="1"/>
+					<circle cx="660" cy="396" r="28" fill="white" stroke="#888888" stroke-width="1"/>
+
+					<!-- ── L1 initials ── -->
+					<text x="180" y="68" text-anchor="middle" dominant-baseline="central"
+						font-size="18" font-weight="700" fill="#C41E3A">MČ</text>
+					<text x="540" y="68" text-anchor="middle" dominant-baseline="central"
+						font-size="18" font-weight="700" fill="#C41E3A">MV</text>
+
+					<!-- ── L2 initials ── -->
+					<text x="90"  y="242" text-anchor="middle" dominant-baseline="central"
+						font-size="13" font-weight="700" fill="#1a1a1a">VM</text>
+					<text x="270" y="242" text-anchor="middle" dominant-baseline="central"
+						font-size="13" font-weight="700" fill="#1a1a1a">PS</text>
+					<text x="450" y="242" text-anchor="middle" dominant-baseline="central"
+						font-size="13" font-weight="700" fill="#1a1a1a">NČ</text>
+					<text x="630" y="242" text-anchor="middle" dominant-baseline="central"
+						font-size="13" font-weight="700" fill="#1a1a1a">JS</text>
+
+					<!-- ── L3 initials ── -->
+					<text x="60"  y="396" text-anchor="middle" dominant-baseline="central"
+						font-size="11" font-weight="700" fill="#888888">ZH</text>
+					<text x="180" y="396" text-anchor="middle" dominant-baseline="central"
+						font-size="11" font-weight="700" fill="#888888">JČ</text>
+					<text x="300" y="396" text-anchor="middle" dominant-baseline="central"
+						font-size="11" font-weight="700" fill="#888888">ZS</text>
+					<text x="420" y="396" text-anchor="middle" dominant-baseline="central"
+						font-size="11" font-weight="700" fill="#888888">LH</text>
+					<text x="540" y="396" text-anchor="middle" dominant-baseline="central"
+						font-size="11" font-weight="700" fill="#888888">JČ</text>
+					<text x="660" y="396" text-anchor="middle" dominant-baseline="central"
+						font-size="11" font-weight="700" fill="#888888">PČ</text>
+
+					<!-- ── L1 names + roles ── -->
+					<text x="180" y="134" text-anchor="middle"
+						font-size="13" font-weight="700" fill="#1a1a1a">Miroslav Čech</text>
+					<text x="180" y="150" text-anchor="middle"
+						font-size="11" fill="#888888">předseda</text>
+
+					<text x="540" y="134" text-anchor="middle"
+						font-size="13" font-weight="700" fill="#1a1a1a">Miroslav Vícha</text>
+					<text x="540" y="150" text-anchor="middle"
+						font-size="11" fill="#888888">zakladatel · ředitel ST</text>
+
+					<!-- ── L2 names + roles ── -->
+					<!-- Vít Minařík — single line -->
+					<text x="90" y="292" text-anchor="middle"
+						font-size="11.5" font-weight="700" fill="#1a1a1a">Vít Minařík</text>
+					<text x="90" y="307" text-anchor="middle"
+						font-size="10" fill="#888888">místopředseda</text>
+
+					<!-- Ing. Petra Sommer — two lines -->
+					<text x="270" text-anchor="middle"
+						font-size="11.5" font-weight="700" fill="#1a1a1a">
+						<tspan x="270" y="287">Ing. Petra</tspan>
+						<tspan x="270" dy="14">Sommer</tspan>
+					</text>
+					<text x="270" y="316" text-anchor="middle"
+						font-size="10" fill="#888888">jednatelka</text>
+
+					<!-- Ing. Nikola Černohorská — two lines -->
+					<text x="450" text-anchor="middle"
+						font-size="11.5" font-weight="700" fill="#1a1a1a">
+						<tspan x="450" y="287">Ing. Nikola</tspan>
+						<tspan x="450" dy="14">Černohorská</tspan>
+					</text>
+					<text x="450" y="316" text-anchor="middle"
+						font-size="10" fill="#888888">fin. hospodářka</text>
+
+					<!-- Jakub Slezák — single line -->
+					<text x="630" y="292" text-anchor="middle"
+						font-size="11.5" font-weight="700" fill="#1a1a1a">Jakub Slezák</text>
+					<text x="630" y="307" text-anchor="middle"
+						font-size="10" fill="#888888">kult. hospodář</text>
+
+					<!-- ── L3 names (two-line split for all) ── -->
+					<text x="60" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1a">
+						<tspan x="60" y="436">Zbyněk</tspan>
+						<tspan x="60" dy="13">Hanák</tspan>
+					</text>
+					<text x="180" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1a">
+						<tspan x="180" y="436">Jiří</tspan>
+						<tspan x="180" dy="13">Černohorský</tspan>
+					</text>
+					<text x="300" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1a">
+						<tspan x="300" y="436">Zdeněk</tspan>
+						<tspan x="300" dy="13">Sommer</tspan>
+					</text>
+					<text x="420" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1a">
+						<tspan x="420" y="436">Lucie</tspan>
+						<tspan x="420" dy="13">Haasová</tspan>
+					</text>
+					<text x="540" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1a">
+						<tspan x="540" y="436">Jaroslav</tspan>
+						<tspan x="540" dy="13">Čech</tspan>
+					</text>
+					<text x="660" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1a">
+						<tspan x="660" y="436">Pavel</tspan>
+						<tspan x="660" dy="13">Čech</tspan>
+					</text>
+
+					<!-- ── Shared L3 role label ── -->
+					<text x="360" y="463" text-anchor="middle"
+						font-size="10" fill="#888888">členové výboru</text>
+				</svg>
+			</div>
+
+			<h2>tým TJ Jiskra Jančí</h2>
+			<figure class="team-photo">
+				<Image
+					src={teamImg}
+					alt="Členové oddílu stolního tenisu, 2024"
+					width={720}
+					height={480}
+				/>
+				<figcaption>Členové oddílu stolního tenisu, 2024</figcaption>
+			</figure>
 
 			<h2>sportovní zařízení ve správě TJ</h2>
 			<ul>
