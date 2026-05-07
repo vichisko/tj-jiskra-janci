@@ -9,6 +9,6 @@ heroImage: "../../assets/photos/tym-stolni-tenis.webp"
 
 Pro Jančí jde o historický milník – vesnice se 170 obyvateli ještě nikdy neměla tři celky v okresních soutěžích. Pro srovnání: Jančí má teď stejný počet týmů v okrese jako Kravaře, město s víc než šesti tisíci obyvateli.
 
-Nové céčko vzniklo díky příchodu nových hráčů. Tým je kvalitativně nejmladší a nejméně zkušený z trojice, ale právě v tom je jeho smysl: omlazená sestava dostává prostor pro postupný růst, zatímco zkušenější hráči působí v áčku a béčku. Klub má dlouhodobě silnou členskou základnu – 67 členů ve vesnici se 170 obyvateli, tedy víc než třetinu populace.
+Nové céčko vzniklo díky příchodu nových hráčů. Tým je kvalitativně nejmladší a nejméně zkušený z trojice, ale právě v tom je jeho smysl: omlazená sestava dostává prostor pro postupný růst, zatímco zkušenější hráči působí v áčku a béčku. Klub má dlouhodobě silnou členskou základnu – 67 členů z Jančí a okolních obcí.
 
 Tréninky všech tří mužských celků probíhají v herně TJ Jiskra Jančí v pondělních večerech, mládež trénuje od 16:30 do 18:30. Klub trvale hledá nové hráče v každé věkové kategorii.
