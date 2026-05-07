@@ -41,12 +41,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 						href="https://www.facebook.com/TJ.Jiskra.Janci"
 						target="_blank"
 						rel="noopener noreferrer"
-					>Facebook</a>
+					>Facebook TJ Jiskra Jančí</a>
 					<a
 						href="https://iscus.cz/web/sportovni-subjekty/3806101"
 						target="_blank"
 						rel="noopener noreferrer"
-					>Česká unie sportu</a>
+					>Profil v ČUS</a>
 				</div>
 			</div>
 
@@ -63,9 +63,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <style>
 	footer {
-		background: var(--color-text);
-		color: var(--color-white);
-		padding: 5rem 2rem;
+		background: var(--color-gray-light);
+		color: var(--color-text);
+		padding: 5rem 2rem 3rem;
 	}
 
 	.footer-inner {
@@ -77,33 +77,33 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	.footer-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
-		gap: 3rem;
+		gap: 4rem;
 	}
 
 	/* ── Column 1: Brand ── */
 	.brand-name {
-		font-size: 2rem;
+		font-size: 1.75rem;
 		font-weight: 800;
 		line-height: 1;
 		letter-spacing: -0.01em;
-		color: var(--color-white);
+		color: var(--color-text);
 		margin: 0;
 	}
 
 	.brand-sub {
 		font-size: 0.85rem;
-		color: rgba(255, 255, 255, 0.5);
-		margin: 0.75rem 0 0;
+		color: var(--color-gray-medium);
+		margin: 0.5rem 0 0;
 		font-style: italic;
 	}
 
 	/* ── Eyebrow headings ── */
 	.col-eyebrow {
-		font-size: 0.75rem;
+		font-size: 0.7rem;
 		font-weight: 600;
 		letter-spacing: 0.15em;
 		text-transform: uppercase;
-		color: var(--color-primary);
+		color: var(--color-gray-medium);
 		margin: 0 0 1.5rem;
 	}
 
@@ -118,10 +118,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	}
 
 	.col-nav a {
-		color: var(--color-white);
+		color: var(--color-text);
 		text-decoration: none;
 		font-size: 0.95rem;
-		line-height: 2.2;
+		line-height: 2;
 		transition: color 0.2s;
 	}
 
@@ -133,18 +133,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	address {
 		font-style: normal;
 		font-size: 0.95rem;
-		line-height: 1.8;
-		color: rgba(255, 255, 255, 0.75);
+		line-height: 1.7;
+		color: var(--color-text);
 	}
 
 	address a {
-		color: rgba(255, 255, 255, 0.75);
+		color: var(--color-text);
 		text-decoration: none;
 		transition: color 0.2s;
 	}
 
 	address a:hover {
-		color: var(--color-white);
+		color: var(--color-primary);
 	}
 
 	.social-links {
@@ -153,10 +153,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	}
 
 	.social-links a {
-		color: var(--color-white);
+		color: var(--color-text);
 		text-decoration: none;
 		font-size: 0.95rem;
-		line-height: 2.2;
+		line-height: 1.8;
 		transition: color 0.2s;
 	}
 
@@ -167,7 +167,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	/* ── Separator ── */
 	.footer-rule {
 		border: none;
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		border-top: 1px solid rgba(0, 0, 0, 0.08);
 		margin: 4rem 0 2rem;
 	}
 
@@ -177,28 +177,28 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		justify-content: space-between;
 		align-items: center;
 		flex-wrap: wrap;
-		gap: 0.75rem;
+		gap: 0.5rem;
 	}
 
 	.copyright,
 	.motto {
 		font-size: 0.8rem;
-		color: rgba(255, 255, 255, 0.5);
+		color: var(--color-gray-medium);
 	}
 
 	/* ── Responsive ── */
 	@media (max-width: 820px) {
 		footer {
-			padding: 3rem 1.5rem;
+			padding: 3rem 1rem 2rem;
 		}
 
 		.footer-grid {
 			grid-template-columns: 1fr;
-			gap: 2.5rem;
+			gap: 3rem;
 		}
 
 		.brand-name {
-			font-size: 1.5rem;
+			font-size: 1.4rem;
 		}
 
 		.footer-bottom {
