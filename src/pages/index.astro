@@ -124,10 +124,59 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			}
 
 			/* ── Divider ── */
-			.hero-divider {
+			.section-divider {
 				height: 1px;
 				background: var(--color-gray-light);
 				margin: 0 2rem;
+			}
+
+			/* ── Stats ── */
+			.stats {
+				background: var(--color-white);
+				padding: 6rem 2rem;
+			}
+
+			.stats-inner {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+
+			.stats-eyebrow {
+				font-size: 0.85rem;
+				font-weight: 600;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: var(--color-primary);
+				text-align: center;
+				margin: 0 0 3rem;
+			}
+
+			.stats-grid {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 3rem;
+			}
+
+			.stat {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+			}
+
+			.stat-number {
+				font-size: 5rem;
+				font-weight: 900;
+				line-height: 1;
+				letter-spacing: -0.02em;
+				color: var(--color-text);
+			}
+
+			.stat-label {
+				font-size: 0.95rem;
+				font-weight: 400;
+				color: var(--color-gray-medium);
+				margin-top: 0.75rem;
 			}
 
 			/* ── Feature cards ── */
@@ -230,6 +279,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 					min-height: 240px;
 				}
 
+				.stats {
+					padding: 4rem 1rem;
+				}
+
+				.stats-grid {
+					grid-template-columns: repeat(2, 1fr);
+					gap: 2rem;
+				}
+
+				.stat-number {
+					font-size: 3.5rem;
+				}
+
 				.features-grid {
 					grid-template-columns: 1fr;
 					max-width: 540px;
@@ -238,6 +300,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 				.features {
 					padding: 3rem 1.25rem;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.stats-grid {
+					grid-template-columns: 1fr;
 				}
 			}
 		</style>
@@ -267,7 +335,33 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			</div>
 		</section>
 
-		<div class="hero-divider"></div>
+		<div class="section-divider"></div>
+
+		<section class="stats">
+			<div class="stats-inner">
+				<p class="stats-eyebrow">Jančí v číslech</p>
+				<div class="stats-grid">
+					<div class="stat">
+						<span class="stat-number">50</span>
+						<span class="stat-label">let nepřetržité existence</span>
+					</div>
+					<div class="stat">
+						<span class="stat-number">67</span>
+						<span class="stat-label">aktivních členů oddílu</span>
+					</div>
+					<div class="stat">
+						<span class="stat-number">3</span>
+						<span class="stat-label">týmy v&nbsp;okresním přeboru</span>
+					</div>
+					<div class="stat">
+						<span class="stat-number">1976</span>
+						<span class="stat-label">rok založení klubu</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<div class="section-divider"></div>
 
 		<section class="features">
 			<div class="features-inner">
