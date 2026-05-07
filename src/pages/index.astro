@@ -5,7 +5,6 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
-import heroImg from '../assets/photos/stolni-tenis-hra.webp';
 import cardImg1 from '../assets/photos/tym-stolni-tenis.webp';
 import cardImg2 from '../assets/photos/detsky-den-diplomy.webp';
 import cardImg3 from '../assets/photos/detsky-den-vsichni.webp';
@@ -20,17 +19,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		<style>
 			/* ── Hero ── */
 			.hero {
-				display: grid;
-				grid-template-columns: 60fr 40fr;
 				min-height: 70vh;
 				background: var(--color-white);
+				display: flex;
+				align-items: center;
+				padding: 4rem;
 			}
 
 			.hero-text {
-				padding: 4rem;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
+				max-width: 900px;
+				width: 100%;
+				margin: 0 auto;
+				padding: 4rem 0;
 			}
 
 			.hero-eyebrow {
@@ -107,20 +107,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 			.btn-secondary:hover {
 				border-bottom-color: var(--color-primary);
-			}
-
-			.hero-image {
-				overflow: hidden;
-			}
-
-			.hero-image :global(img) {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				object-position: center;
-				display: block;
-				border-radius: 0;
-				max-width: none;
 			}
 
 			/* ── Divider ── */
@@ -260,23 +246,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			/* ── Responsive ── */
 			@media (max-width: 900px) {
 				.hero {
-					grid-template-columns: 1fr;
 					min-height: auto;
+					padding: 2rem;
 				}
 
 				.hero-text {
-					padding: 2rem;
-					order: 1;
+					padding: 2rem 0;
 				}
 
 				.hero-title {
 					font-size: 3rem;
-				}
-
-				.hero-image {
-					order: 2;
-					height: 55vw;
-					min-height: 240px;
 				}
 
 				.stats {
@@ -323,15 +302,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 					<a href={`${base}/about`} class="btn-primary">o klubu</a>
 					<a href={`${base}/stolni-tenis`} class="btn-secondary">stolní tenis</a>
 				</div>
-			</div>
-			<div class="hero-image">
-				<Image
-					src={heroImg}
-					alt="Stolní tenis v TJ Jiskra Jančí"
-					width={800}
-					height={700}
-					loading="eager"
-				/>
 			</div>
 		</section>
 
