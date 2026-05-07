@@ -22,8 +22,8 @@ body {
 	text-align: left;
 	background: var(--color-white);
 	color: var(--color-text);
-	font-size: 18px;
-	line-height: 1.6;
+	font-size: 0.95rem;
+	line-height: 1.65;
 	font-weight: 400;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
@@ -49,11 +49,11 @@ h6 {
 	letter-spacing: -0.02em;
 }
 
-h1 { font-size: 2.8em; }
-h2 { font-size: 2em; }
-h3 { font-size: 1.5em; }
-h4 { font-size: 1.25em; }
-h5 { font-size: 1.1em; }
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.15rem; }
+h5 { font-size: 1rem; }
 
 strong,
 b {
@@ -128,13 +128,13 @@ blockquote {
 }
 
 .prose p {
-	font-size: 1rem;
+	font-size: 0.95rem;
 	line-height: 1.7;
 	margin-bottom: 2em;
 }
 
 .prose > p:first-of-type {
-	font-size: 1.15rem;
+	font-size: 1.05rem;
 	font-weight: 600;
 	line-height: 1.6;
 }
@@ -146,16 +146,13 @@ hr {
 }
 
 @media (max-width: 720px) {
-	body {
-		font-size: 16px;
-	}
-
 	main {
 		padding: 1em;
 	}
 
-	h1 { font-size: 2em; }
-	h2 { font-size: 1.5em; }
+	h1 { font-size: 1.85rem; }
+	h2 { font-size: 1.4rem; }
+	h3 { font-size: 1.15rem; }
 }
 
 .sr-only {
