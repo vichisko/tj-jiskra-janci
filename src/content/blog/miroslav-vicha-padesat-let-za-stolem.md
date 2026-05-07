@@ -5,15 +5,15 @@ pubDate: "2026-05-06"
 heroImage: "../../assets/photos/pan-vicha-s-jirikem.jpg"
 ---
 
-Pravidelný přispěvatel obecního zpravodaje. Vášnivý příznivec stolního tenisu a sportu obecně. A především člověk na správném místě. Pakliže na světě neexistuje postava jen tak lehce nahraditelná — a věřte, i umělá inteligence by se pořádně zapotila, aby ji nahradila —, tak Březová u Vítkova takovou jednu má. Je jí Miroslav Vícha.
+**Pravidelný přispěvatel do březovského zpravodaje. Vášnivý příznivec stolního tenisu a sportu obecně. A především člověk na správném místě. Pakliže na světě neexistuje postava jen tak lehce nahraditelná — a věřte, i umělá inteligence by se pořádně zapotila, aby ji nahradila —, tak Březová u Vítkova takovou jednu má. Je jí Miroslav Vícha.**
 
 Už v sedmdesátých letech, kdy v Česku ještě hřměla tvrdá normalizace a v Sovětském svazu byl u moci Leonid Brežněv, se na Opavsku schylovalo k něčemu, co by dnes málokdo dokázal pochopit. V Jančí, vesnici v okrese Opava se 170 obyvateli, vznikl v roce 1976 sportovní oddíl TJ Jiskra Jančí. A u toho nemohl být nikdo jiný než první předseda — sám Miroslav Vícha.
 
-V kraji, který nepatří k těm bohatým, drží spolu obec dvě věci — zemědělství a sport. Pinec proto nezačal nikde jinde než idylicky na statku. „Nebyly prostory a týmy sem jezdily rády," říká jeden z pamětníků. „Byla to unikátní záležitost," doplňuje.
+V kraji, který nepatří k těm bohatým, drží spolu obec dvě věci — zemědělství a sport. Pinec proto nezačal nikde jinde než idylicky na statku. *„Nebyly prostory a týmy sem jezdily rády,"* říká jeden z pamětníků. *„Byla to unikátní záležitost,"* doplňuje.
 
-Přestože se najdou i tací, kteří dodnes chodí od stolu ke stolu s pravítkem v ruce a přeměřují sítě, zda jejich výška dosahuje požadovaných 15,25 cm, „obecně se lidem u nás líbilo a rádi se sem vraceli". Miroslav Vícha hrál klíčovou roli nejen v rozmachu sportu, ale i v jeho úplných začátcích, kdy stolní tenis ještě stál v Jančí v plenkách.
+Přestože se najdou i tací, kteří dodnes chodí od stolu ke stolu s pravítkem v ruce a přeměřují sítě, zda jejich výška dosahuje požadovaných 15,25 cm, *„obecně se lidem u nás líbilo a rádi se sem vraceli"*. Miroslav Vícha hrál klíčovou roli nejen v rozmachu sportu, ale i v jeho úplných začátcích, kdy stolní tenis ještě stál v Jančí v plenkách.
 
-Bez něj by se ten sport tady jen horko těžko uchytil.
+> Bez něj by se ten sport tady jen horko těžko uchytil.
 
 Zatímco se jeho post z předsedy změnil na začátku nového tisíciletí na hlavního trenéra stolního tenisu, vášeň zůstala neposkvrněná. V pětasedmdesáti letech vede tréninky dětí každé pondělí od půl páté do půl sedmé a následně si i zapinká s těmi staršími. Mezitím dohlíží na rekonstrukci klubové herny — od střechy přes zateplení až po výměnu povrchu hracích ploch —, kterou si oddíl dělá výhradně svépomocí, aby ušetřil peníze, kterých není nikdy dost.
 
