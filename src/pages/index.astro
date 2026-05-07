@@ -1,5 +1,5 @@
 ---
-import { Image, getImage } from 'astro:assets';
+import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
@@ -10,7 +10,6 @@ import cardImg1 from '../assets/photos/tym-stolni-tenis.webp';
 import cardImg2 from '../assets/photos/detsky-den-diplomy.webp';
 import cardImg3 from '../assets/photos/detsky-den-vsichni.webp';
 
-const optimizedHero = await getImage({ src: heroImg, width: 1920, quality: 80 });
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
@@ -19,76 +18,60 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
-			/* Hero */
+			/* ── Hero ── */
 			.hero {
-				position: relative;
+				display: grid;
+				grid-template-columns: 60fr 40fr;
 				min-height: 70vh;
+				background: var(--color-white);
+			}
+
+			.hero-text {
+				padding: 4rem;
 				display: flex;
-				align-items: center;
-				background-size: cover;
-				background-position: center;
-				overflow: hidden;
+				flex-direction: column;
+				justify-content: center;
 			}
 
-			.hero::after {
-				content: '';
-				position: absolute;
-				inset: 0;
-				background: rgba(10, 10, 10, 0.55);
-			}
-
-			.hero-content {
-				position: relative;
-				z-index: 1;
-				width: 100%;
-				max-width: 860px;
-				margin: 0 auto;
-				padding: 6rem 2rem;
-				text-align: center;
-				color: var(--color-white);
+			.hero-eyebrow {
+				font-size: 0.85rem;
+				font-weight: 600;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				color: var(--color-primary);
+				margin: 0 0 1.25rem;
 			}
 
 			.hero-title {
-				font-size: clamp(1.9rem, 5vw, 3.4rem);
-				font-weight: 700;
-				line-height: 1.1;
-				margin-bottom: 1rem;
-				letter-spacing: -0.03em;
-				color: var(--color-white);
+				font-size: 5.5rem;
+				font-weight: 900;
+				line-height: 1;
+				letter-spacing: -0.02em;
+				color: var(--color-text);
+				margin: 0;
 			}
 
-			.hero-subtitle {
-				font-size: clamp(1rem, 2.5vw, 1.3rem);
-				font-weight: 400;
-				opacity: 0.85;
-				margin-bottom: 0;
-				color: var(--color-white);
+			.hero-stats {
+				font-size: 0.85rem;
+				font-weight: 600;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: var(--color-gray-medium);
+				margin: 2rem 0 0;
 			}
 
 			.hero-tagline {
-				font-size: 0.85rem;
-				font-weight: 600;
-				letter-spacing: 0.04em;
-				margin-bottom: 2.5rem;
-				padding-top: 2rem;
-				position: relative;
-				color: rgba(255, 255, 255, 0.65);
-			}
-
-			.hero-tagline::before {
-				content: '';
-				display: block;
-				width: 40px;
-				height: 3px;
-				background: var(--color-primary);
-				margin: 0 auto 1.25rem;
+				font-size: 1.05rem;
+				color: var(--color-text);
+				margin: 1.5rem 0 0;
 			}
 
 			.hero-buttons {
 				display: flex;
-				gap: 1rem;
-				justify-content: center;
+				align-items: center;
+				gap: 1.5rem;
 				flex-wrap: wrap;
+				margin-top: 2.5rem;
 			}
 
 			.btn-primary {
@@ -100,42 +83,54 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				border-radius: 4px;
 				font-weight: 600;
 				font-size: 1rem;
-				border: 2px solid var(--color-primary);
 				transition:
 					background 0.2s,
-					border-color 0.2s,
 					transform 0.15s;
 			}
 
 			.btn-primary:hover {
 				background: #a31830;
-				border-color: #a31830;
 				transform: translateY(-2px);
 			}
 
 			.btn-secondary {
 				display: inline-block;
-				padding: 0.85em 2.2em;
 				background: transparent;
-				color: var(--color-white);
+				color: var(--color-text);
 				text-decoration: none;
-				border-radius: 4px;
 				font-weight: 600;
 				font-size: 1rem;
-				border: 2px solid rgba(255, 255, 255, 0.65);
-				transition:
-					border-color 0.2s,
-					background 0.2s,
-					transform 0.15s;
+				border-bottom: 2px solid transparent;
+				padding-bottom: 1px;
+				transition: border-color 0.2s;
 			}
 
 			.btn-secondary:hover {
-				border-color: var(--color-white);
-				background: rgba(255, 255, 255, 0.1);
-				transform: translateY(-2px);
+				border-bottom-color: var(--color-primary);
 			}
 
-			/* Feature cards */
+			.hero-image {
+				overflow: hidden;
+			}
+
+			.hero-image :global(img) {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+				display: block;
+				border-radius: 0;
+				max-width: none;
+			}
+
+			/* ── Divider ── */
+			.hero-divider {
+				height: 1px;
+				background: var(--color-gray-light);
+				margin: 0 2rem;
+			}
+
+			/* ── Feature cards ── */
 			.features {
 				padding: 5rem 1.5rem;
 				background: var(--color-gray-light);
@@ -144,6 +139,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			.features-inner {
 				max-width: 1200px;
 				margin: 0 auto;
+			}
+
+			.features-heading {
+				font-size: 2rem;
+				font-weight: 700;
+				color: var(--color-text);
+				margin: 0 0 2rem;
+				text-transform: lowercase;
 			}
 
 			.features-grid {
@@ -205,17 +208,32 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				line-height: 1.55;
 			}
 
+			/* ── Responsive ── */
 			@media (max-width: 900px) {
+				.hero {
+					grid-template-columns: 1fr;
+					min-height: auto;
+				}
+
+				.hero-text {
+					padding: 2rem;
+					order: 1;
+				}
+
+				.hero-title {
+					font-size: 3rem;
+				}
+
+				.hero-image {
+					order: 2;
+					height: 55vw;
+					min-height: 240px;
+				}
+
 				.features-grid {
 					grid-template-columns: 1fr;
 					max-width: 540px;
 					margin: 0 auto;
-				}
-			}
-
-			@media (max-width: 600px) {
-				.hero {
-					min-height: 60vh;
 				}
 
 				.features {
@@ -227,20 +245,33 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	<body>
 		<Header />
 
-		<section class="hero" style={`background-image: url('${optimizedHero.src}')`}>
-			<div class="hero-content">
+		<section class="hero">
+			<div class="hero-text">
+				<p class="hero-eyebrow">Tělovýchovná jednota</p>
 				<h1 class="hero-title">TJ Jiskra Jančí</h1>
-				<p class="hero-subtitle">Padesátiletá tradice oddílu.</p>
+				<p class="hero-stats">1976 · 50 let · 3 okresní celky · Jančí</p>
 				<p class="hero-tagline"><em>„Společně k aktivnímu životnímu stylu."</em></p>
 				<div class="hero-buttons">
 					<a href={`${base}/about`} class="btn-primary">o klubu</a>
 					<a href={`${base}/stolni-tenis`} class="btn-secondary">stolní tenis</a>
 				</div>
 			</div>
+			<div class="hero-image">
+				<Image
+					src={heroImg}
+					alt="Stolní tenis v TJ Jiskra Jančí"
+					width={800}
+					height={700}
+					loading="eager"
+				/>
+			</div>
 		</section>
+
+		<div class="hero-divider"></div>
 
 		<section class="features">
 			<div class="features-inner">
+				<h2 class="features-heading">co u nás najdete</h2>
 				<div class="features-grid">
 					<a class="feature-card" href={`${base}/stolni-tenis`}>
 						<div class="feature-card-img">
