@@ -1,16 +1,14 @@
 ---
-import { Image } from 'astro:assets';
-import logo from '../assets/photos/logo-tj-jiskra-janci.jpg';
 ---
 
 <footer>
 	<div class="footer-inner">
 		<div class="footer-left">
-			<Image src={logo} alt="TJ Jiskra Jančí" height={40} class="footer-logo" />
+			<span class="footer-brand">TJ Jiskra Jančí</span>
 			<span class="copyright">© 2026 Tělovýchovná jednota Jiskra Jančí, z.&nbsp;s.</span>
 		</div>
 		<div class="footer-right">
-			<em class="motto">společně k aktivnímu životnímu stylu</em>
+			<em class="motto">„Společně k aktivnímu životnímu stylu."</em>
 		</div>
 	</div>
 	<div class="footer-bottom">
@@ -50,13 +48,11 @@ import logo from '../assets/photos/logo-tj-jiskra-janci.jpg';
 		flex-wrap: wrap;
 	}
 
-	.footer-logo {
-		height: 40px;
-		width: auto;
-		border-radius: 0;
-		display: block;
-		filter: brightness(0) invert(1);
-		opacity: 0.85;
+	.footer-brand {
+		font-size: 1rem;
+		font-weight: 700;
+		color: var(--color-white);
+		letter-spacing: -0.01em;
 	}
 
 	.copyright {

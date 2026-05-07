@@ -17,12 +17,45 @@ import { SITE_TITLE } from '../consts';
 				width: calc(100% - 2em);
 				max-width: 720px;
 				margin: 2em auto;
-				padding: 0 1em;
+				padding: 0 1em 3em;
 			}
 			address {
 				font-style: normal;
 				margin-bottom: 1.5rem;
 				line-height: 1.8;
+			}
+			.map-wrap {
+				margin: 1.5rem 0 2rem;
+				border-radius: 8px;
+				overflow: hidden;
+				box-shadow: var(--box-shadow);
+			}
+			.map-wrap iframe {
+				display: block;
+				width: 100%;
+				height: 350px;
+				border: none;
+			}
+			.contact-block {
+				margin-bottom: 1.75rem;
+			}
+			.contact-block h2 {
+				margin-bottom: 0.5rem;
+			}
+			.social-links {
+				list-style: none;
+				padding: 0;
+				margin: 0.5rem 0 0;
+			}
+			.social-links li {
+				margin-bottom: 0.4rem;
+			}
+			.social-links a {
+				color: var(--color-primary);
+				text-decoration: none;
+			}
+			.social-links a:hover {
+				text-decoration: underline;
 			}
 		</style>
 	</head>
@@ -30,29 +63,72 @@ import { SITE_TITLE } from '../consts';
 		<Header />
 		<main>
 			<h1>kontakt</h1>
-			<address>
-				<strong>Tělovýchovná jednota Jiskra Jančí, z.&nbsp;s.</strong><br />
-				Jančí, městys Březová<br />
-				okres Opava
-			</address>
-			<ul>
-				<li><strong>Předseda:</strong> Miroslav Čech</li>
-				<li>
-					<strong>Ředitel stolního tenisu</strong> (kontakt pro nábor a pronájem herny):
-					Miroslav Vícha
-				</li>
-			</ul>
+
+			<div class="contact-block">
+				<address>
+					<strong>Tělovýchovná jednota Jiskra Jančí, z.&nbsp;s.</strong><br />
+					Jančí 62, 747 44 Březová<br />
+					okres Opava
+				</address>
+			</div>
+
+			<div class="map-wrap">
+				<iframe
+					src="https://www.google.com/maps?q=Jan%C4%8D%C3%AD+62%2C+747+44+B%C5%99ezov%C3%A1&output=embed"
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+					title="Mapa — Jančí 62, 747 44 Březová"
+				></iframe>
+			</div>
 			<p>
-				Členství v České unii sportu:
-				<a href="https://iscus.cz/web/sportovni-subjekty/3806101" target="_blank" rel="noopener">
-					iscus.cz/web/sportovni-subjekty/3806101
+				<a
+					href="https://www.google.com/maps/search/?api=1&query=Jan%C4%8D%C3%AD+62%2C+747+44+B%C5%99ezov%C3%A1"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Otevřít v Google Maps
 				</a>
 			</p>
-			<p>
-				<em>
-					Konkrétní e-mailové a telefonické kontakty budou doplněny po konzultaci s výborem.
-				</em>
-			</p>
+
+			<div class="contact-block">
+				<p>
+					<strong>E-mail TJ:</strong> <a href="mailto:tjjiskrajanci@seznam.cz">tjjiskrajanci@seznam.cz</a><br />
+					<strong>Telefon:</strong> <a href="tel:+420605251525">605 251 525</a>
+				</p>
+			</div>
+
+			<div class="contact-block">
+				<h2>předseda oddílu stolního tenisu</h2>
+				<p>
+					Miroslav Vícha<br />
+					<strong>E-mail:</strong> <a href="mailto:vichamiroslav@post.cz">vichamiroslav@post.cz</a><br />
+					<strong>Telefon:</strong> <a href="tel:+42060372325">603 723 25</a>
+				</p>
+			</div>
+
+			<div class="contact-block">
+				<h2>najdete nás také na sociálních sítích</h2>
+				<ul class="social-links">
+					<li>
+						<a
+							href="https://www.facebook.com/TJ.Jiskra.Janci"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Facebook TJ Jiskra Jančí
+						</a>
+					</li>
+					<li>
+						<a
+							href="https://iscus.cz/web/sportovni-subjekty/3806101"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Profil klubu v České unii sportu
+						</a>
+					</li>
+				</ul>
+			</div>
 		</main>
 		<Footer />
 	</body>
