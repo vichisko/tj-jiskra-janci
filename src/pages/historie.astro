@@ -43,22 +43,104 @@ import bannerImg from '../assets/photos/stolni-tenis-turnaj.jpg';
 				font-style: italic;
 			}
 
-			main {
+			.page-intro {
 				width: calc(100% - 2em);
-				max-width: 720px;
-				margin: 0 auto;
-				padding: 3em 1em;
+				max-width: 640px;
+				margin: 3rem auto 0;
+				padding: 0 1.5rem;
 			}
 
-			.entry {
-				margin-bottom: 2.5rem;
+			.page-intro h1 {
+				margin-bottom: 0;
 			}
 
-			.entry h2 {
-				border-left: 4px solid var(--color-primary);
-				padding-left: 0.75rem;
-				margin-bottom: 0.5rem;
-				margin-top: 2.5rem;
+			/* ── Timeline ── */
+
+			.timeline {
+				position: relative;
+				max-width: 640px;
+				margin: 2.5rem auto 4rem;
+				padding: 0 1.5rem 2rem;
+			}
+
+			/* Vertical line running top-to-bottom through all dots */
+			.timeline::before {
+				content: '';
+				position: absolute;
+				left: 1.5rem;
+				top: 10px;
+				bottom: 0;
+				width: 2px;
+				background: rgba(196, 30, 58, 0.18);
+			}
+
+			.timeline-entry {
+				position: relative;
+				padding-left: 2.5rem;
+				margin-bottom: 3.5rem;
+			}
+
+			.timeline-entry:last-child {
+				margin-bottom: 0;
+			}
+
+			/* Red dot on the line */
+			.timeline-entry::before {
+				content: '';
+				position: absolute;
+				left: -6px;
+				top: 8px;
+				width: 12px;
+				height: 12px;
+				border-radius: 50%;
+				background: var(--color-primary);
+				border: 2px solid white;
+				box-shadow: 0 0 0 2px var(--color-primary);
+			}
+
+			.timeline-year {
+				display: block;
+				font-size: 1.5rem;
+				font-weight: 700;
+				color: var(--color-primary);
+				line-height: 1.1;
+				margin-bottom: 0.15rem;
+			}
+
+			.timeline-milestone {
+				display: block;
+				font-size: 0.75rem;
+				font-weight: 600;
+				letter-spacing: 0.07em;
+				text-transform: uppercase;
+				color: var(--color-gray-medium);
+				margin-bottom: 0.7rem;
+			}
+
+			.timeline-body {
+				font-size: 0.975rem;
+				line-height: 1.7;
+				color: var(--color-text);
+				margin: 0;
+			}
+
+			@media (max-width: 600px) {
+				.page-intro {
+					padding: 0 1rem;
+				}
+
+				.timeline {
+					padding: 0 1rem 1.5rem;
+					margin-top: 2rem;
+				}
+
+				.timeline-year {
+					font-size: 1.25rem;
+				}
+
+				.timeline-entry {
+					margin-bottom: 2.75rem;
+				}
 			}
 		</style>
 	</head>
@@ -75,12 +157,16 @@ import bannerImg from '../assets/photos/stolni-tenis-turnaj.jpg';
 			<figcaption>Mladí hráči Jiskry na turnaji v Hradci nad Moravicí</figcaption>
 		</figure>
 
-		<main>
+		<div class="page-intro">
 			<h1>padesát let Jiskry</h1>
+		</div>
 
-			<div class="entry">
-				<h2>1976 — vznik klubu</h2>
-				<p>
+		<div class="timeline">
+
+			<div class="timeline-entry">
+				<span class="timeline-year">1976</span>
+				<span class="timeline-milestone">vznik klubu</span>
+				<p class="timeline-body">
 					Tělovýchovná jednota vzniká na podzim 1976 v době pozdní normalizace. Prvním předsedou se
 					stává Miroslav Vícha. Název spolku je převzat po zaniklém volejbalovém oddílu, který
 					v Jančí dříve působil. Klub získává od rodiny Pretschových plochu pro fotbalové hřiště
@@ -88,43 +174,56 @@ import bannerImg from '../assets/photos/stolni-tenis-turnaj.jpg';
 				</p>
 			</div>
 
-			<div class="entry">
-				<h2>1977 — první Globus, první pingpong</h2>
-				<p>
+			<div class="timeline-entry">
+				<span class="timeline-year">1977</span>
+				<span class="timeline-milestone">první Globus, první pingpong</span>
+				<p class="timeline-body">
 					Koná se první ročník fotbalového turnaje malé kopané, dnes známého pod názvem Globus.
 					V tomtéž roce se v Jančí začíná aktivně hrát stolní tenis — první stůl stojí na statku
 					jednoho ze členů. Hráči ze širšího Opavska sem jezdí na pingpong jako na atrakci.
 				</p>
 			</div>
 
-			<div class="entry">
-				<h2>1980 — tenisové kurty</h2>
-				<p>
+			<div class="timeline-entry">
+				<span class="timeline-year">1980</span>
+				<span class="timeline-milestone">tenisové kurty</span>
+				<p class="timeline-body">
 					Začíná výstavba tenisových kurtů, na nichž se několik let hraje i závodně. Kurty se
 					stávají vyhlášenými v širokém okolí, postupně však kvůli nákladům na údržbu klesají na
 					rekreační úroveň.
 				</p>
 			</div>
 
-			<div class="entry">
-				<h2>kolem roku 2000 — herna pro stolní tenis</h2>
-				<p>
+			<div class="timeline-entry">
+				<span class="timeline-year" style="font-size: 1.15rem;">kolem roku 2000</span>
+				<span class="timeline-milestone">herna pro stolní tenis</span>
+				<p class="timeline-body">
 					Obecní budova přechází do majetku TJ. Začíná dlouhodobá rekonstrukce pod vedením
 					Miroslava Víchy — zateplení, oprava střechy, gumový povrch hracích ploch. Práce probíhají
 					dodnes, vždy svépomocí členů.
 				</p>
 			</div>
 
-			<div class="entry">
-				<h2>současnost</h2>
-				<p>
-					Klub má 67 členů. Stolní tenis staví tři družstva — více než řada měst
-					desetinásobné velikosti. Předsedou je již dvacet&nbsp;šest let Miroslav Čech. V roce 2026
-					si klub připomíná padesáté výročí existence; zároveň pořádá padesátý ročník turnaje
-					Globus.
+			<div class="timeline-entry">
+				<span class="timeline-year">2025</span>
+				<span class="timeline-milestone">třetí celek v okresním přeboru</span>
+				<p class="timeline-body">
+					Klub poprvé v historii staví do okresního přeboru tři mužské celky. Tým TJ Jiskra
+					Jančí&nbsp;C nastupuje v sezoně 2025/26 do 3. třídy okresního přeboru.
 				</p>
 			</div>
-		</main>
+
+			<div class="timeline-entry">
+				<span class="timeline-year">2026</span>
+				<span class="timeline-milestone">padesáté výročí</span>
+				<p class="timeline-body">
+					Klub si připomíná padesát let nepřerušené existence. Ve stejném roce uspořádá padesátý
+					ročník turnaje Globus. Předsedou je Miroslav Čech, předsedou stolního tenisu Miroslav
+					Vícha.
+				</p>
+			</div>
+
+		</div>
 
 		<Footer />
 	</body>
