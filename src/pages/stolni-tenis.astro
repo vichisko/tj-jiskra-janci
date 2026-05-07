@@ -5,10 +5,14 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
 
-import bannerImg from '../assets/photos/herna-zevnitr.jpg';
-import treninkyImg from '../assets/photos/stolni-tenis-deti-turnaj.jpg';
-import mladezImg from '../assets/photos/stolni-tenis-stupni-vitezu.jpg';
-import dospelijImg from '../assets/photos/tym-stolni-tenis.webp';
+import photo1 from '../assets/photos/herna-zevnitr.jpg';
+import photo2 from '../assets/photos/tym-stolni-tenis.webp';
+import photo3 from '../assets/photos/stolni-tenis-deti-turnaj.jpg';
+import photo4 from '../assets/photos/stolni-tenis-stupni-vitezu.jpg';
+import photo5 from '../assets/photos/stolni-tenis-hra.webp';
+import photo6 from '../assets/photos/stolni-tenis-turnaj.jpg';
+import photo7 from '../assets/photos/predavani-diplomu.webp';
+import photo8 from '../assets/photos/pan-vicha-s-jirikem.jpg';
 ---
 
 <!doctype html>
@@ -19,77 +23,88 @@ import dospelijImg from '../assets/photos/tym-stolni-tenis.webp';
 			description="Tréninky, soutěže a nábor nových hráčů stolního tenisu v TJ Jiskra Jančí."
 		/>
 		<style>
-			.page-banner {
-				width: 100%;
-				max-height: 420px;
-				overflow: hidden;
-				position: relative;
-			}
-
-			.page-banner :global(img) {
-				width: 100%;
-				height: 420px;
-				object-fit: cover;
-				border-radius: 0;
-				display: block;
-			}
-
-			.page-banner figcaption {
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				right: 0;
-				padding: 0.75em 1.5em;
-				background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
-				color: rgba(255, 255, 255, 0.9);
-				font-size: 0.85em;
-				font-style: italic;
-			}
-
 			main {
 				width: calc(100% - 2em);
 				max-width: 720px;
 				margin: 0 auto;
-				padding: 3em 1em;
-			}
-
-			.section-photo {
-				margin: 1.5rem 0 2rem;
-				border-radius: 8px;
-				overflow: hidden;
-			}
-
-			.section-photo :global(img) {
-				width: 100%;
-				height: auto;
-				border-radius: 8px;
-				display: block;
-			}
-
-			.section-photo figcaption {
-				margin-top: 0.5rem;
-				font-size: 0.85em;
-				color: var(--color-gray-medium);
-				font-style: italic;
-				text-align: center;
+				padding: 3em 1em 2em;
 			}
 
 			h2 {
 				margin-top: 2.5rem;
 			}
 
-			h2:first-of-type {
-				margin-top: 1.5rem;
+			h3 {
+				margin-top: 1.75rem;
+				margin-bottom: 0.5rem;
+				font-size: 1.05rem;
+				font-weight: 600;
+				letter-spacing: 0.02em;
+				text-transform: uppercase;
+				color: var(--color-gray-medium);
+			}
+
+			/* Carousel */
+			.carousel-section {
+				padding: 0 0 3rem;
+			}
+
+			.carousel {
+				display: flex;
+				gap: 1rem;
+				overflow-x: auto;
+				scroll-snap-type: x mandatory;
+				-webkit-overflow-scrolling: touch;
+				padding: 0.5rem 1.5rem 0.75rem;
+				scrollbar-width: thin;
+				scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+			}
+
+			.carousel::-webkit-scrollbar {
+				height: 4px;
+			}
+
+			.carousel::-webkit-scrollbar-track {
+				background: transparent;
+			}
+
+			.carousel::-webkit-scrollbar-thumb {
+				background: rgba(0, 0, 0, 0.15);
+				border-radius: 2px;
+			}
+
+			.carousel-item {
+				flex-shrink: 0;
+				scroll-snap-align: start;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.carousel-item :global(img) {
+				height: 240px;
+				width: auto;
+				max-width: none;
+				border-radius: 6px;
+				display: block;
+			}
+
+			.carousel-caption {
+				margin-top: 0.4rem;
+				font-size: 0.8rem;
+				color: var(--color-gray-medium);
+				font-style: italic;
+				text-align: center;
+			}
+
+			@media (max-width: 600px) {
+				.carousel-item :global(img) {
+					height: 180px;
+				}
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
-
-		<figure class="page-banner">
-			<Image src={bannerImg} alt="Herna TJ Jiskra Jančí" width={1200} height={420} />
-			<figcaption>Herna TJ Jiskra Jančí</figcaption>
-		</figure>
 
 		<main>
 			<h1>stolní tenis v Jančí</h1>
@@ -99,64 +114,45 @@ import dospelijImg from '../assets/photos/tym-stolni-tenis.webp';
 			</p>
 
 			<h2>tréninky</h2>
-			<figure class="section-photo">
-				<Image
-					src={treninkyImg}
-					alt="Mládežnický trénink v herně"
-					width={720}
-					height={480}
-				/>
-				<figcaption>Mládežnický trénink v herně</figcaption>
-			</figure>
 			<ul>
 				<li>Děti a dorost: pondělí 16:30–18:30</li>
 				<li>Dospělí: pondělí po dětech (od 18:30)</li>
-				<li>Domácí zápasy mládeže: úterý</li>
 			</ul>
 
-			<h2>soutěže — mládež</h2>
-			<figure class="section-photo">
-				<Image
-					src={mladezImg}
-					alt="Mladí hráči Jiskry s diplomy"
-					width={720}
-					height={480}
-				/>
-				<figcaption>Mladí hráči Jiskry s diplomy</figcaption>
-			</figure>
-			<ul>
-				<li>Tři okresní bodovací turnaje</li>
-				<li>Krajský přebor středisek volného času</li>
-				<li>Liga Moravy a Slezska — dorost</li>
-				<li>Okresní přebor I.&nbsp;třídy pro okres Opava (sezóna 2023/2024)</li>
-				<li>Tradiční účast na turnajích v Radkově a Klokočově</li>
-			</ul>
+			<h2>soutěže</h2>
+			<p>
+				Klub se v aktuální sezoně účastní okresních i regionálních soutěží napříč věkovými
+				kategoriemi.
+			</p>
 
-			<h2>soutěže — dospělí</h2>
-			<figure class="section-photo">
-				<Image
-					src={dospelijImg}
-					alt="Tým TJ Jiskra Jančí, sezona 2024"
-					width={720}
-					height={480}
-				/>
-				<figcaption>Tým TJ Jiskra Jančí, sezona 2024</figcaption>
-			</figure>
+			<h3>dospělí</h3>
 			<p>Účast ve třech okresních soutěžích — tři okresní celky:</p>
 			<ul>
 				<li>
 					<strong>
-						<a href="https://stis.ping-pong.cz/druzstvo-63529/svaz-420806/rocnik-2025/soutez-6217" target="_blank" rel="noopener noreferrer">TJ Jiskra Jančí A</a>
+						<a
+							href="https://stis.ping-pong.cz/druzstvo-63529/svaz-420806/rocnik-2025/soutez-6217"
+							target="_blank"
+							rel="noopener noreferrer"
+						>TJ Jiskra Jančí A</a>
 					</strong> — Okresní přebor v Opavě 1.&nbsp;třída
 				</li>
 				<li>
 					<strong>
-						<a href="https://stis.ping-pong.cz/druzstvo-63530/svaz-420806/rocnik-2025/soutez-6218" target="_blank" rel="noopener noreferrer">TJ Jiskra Jančí B</a>
+						<a
+							href="https://stis.ping-pong.cz/druzstvo-63530/svaz-420806/rocnik-2025/soutez-6218"
+							target="_blank"
+							rel="noopener noreferrer"
+						>TJ Jiskra Jančí B</a>
 					</strong> — Okresní přebor v Opavě 2.&nbsp;třída
 				</li>
 				<li>
 					<strong>
-						<a href="https://stis.ping-pong.cz/druzstvo-63531/svaz-420806/rocnik-2025/soutez-6219" target="_blank" rel="noopener noreferrer">TJ Jiskra Jančí C</a>
+						<a
+							href="https://stis.ping-pong.cz/druzstvo-63531/svaz-420806/rocnik-2025/soutez-6219"
+							target="_blank"
+							rel="noopener noreferrer"
+						>TJ Jiskra Jančí C</a>
 					</strong> — Okresní přebor v Opavě 3.&nbsp;třída
 				</li>
 			</ul>
@@ -167,13 +163,62 @@ import dospelijImg from '../assets/photos/tym-stolni-tenis.webp';
 				Garda Jančí, která soutěž několikrát vyhrála.
 			</p>
 
+			<h3>mládež</h3>
+			<p>Mládežnická sekce klubu se účastní:</p>
+			<ul>
+				<li>tří okresních bodovacích turnajů</li>
+				<li>krajského přeboru středisek volného času</li>
+				<li>Ligy Moravy a Slezska — dorost</li>
+				<li>Okresního přeboru I.&nbsp;třídy pro okres Opava (sezona 2023/2024)</li>
+			</ul>
+			<p>
+				Mladí hráči Jiskry pravidelně reprezentují klub na turnajích v Radkově a Klokočově.
+			</p>
+
 			<h2>možnosti</h2>
 			<p>
 				Hledáme nové hráče v každé věkové kategorii — pro děti od osmi&nbsp;let i pro dospělé bez
-				zkušeností. Hernu lze také pronajmout pro vlastní potřebu (skupiny, narozeniny, firemní
-				akce). Kontaktujte nás přes formulář nebo přímo Miroslava Víchu.
+				zkušeností.
 			</p>
+			<p>Hernu lze také pronajmout pro vlastní potřebu — skupiny, narozeniny, firemní akce.</p>
 		</main>
+
+		<section class="carousel-section">
+			<div class="carousel">
+				<figure class="carousel-item">
+					<Image src={photo1} alt="Herna TJ Jiskra Jančí" width={380} height={240} />
+					<figcaption class="carousel-caption">herna TJ Jiskra Jančí</figcaption>
+				</figure>
+				<figure class="carousel-item">
+					<Image src={photo2} alt="Tým TJ Jiskra Jančí" width={360} height={240} />
+					<figcaption class="carousel-caption">tým TJ Jiskra Jančí</figcaption>
+				</figure>
+				<figure class="carousel-item">
+					<Image src={photo3} alt="Mládežnický trénink" width={360} height={240} />
+					<figcaption class="carousel-caption">mládežnický trénink</figcaption>
+				</figure>
+				<figure class="carousel-item">
+					<Image src={photo4} alt="Mladí hráči s diplomy" width={360} height={240} />
+					<figcaption class="carousel-caption">mladí hráči s diplomy</figcaption>
+				</figure>
+				<figure class="carousel-item">
+					<Image src={photo5} alt="Trénink v herně" width={360} height={240} />
+					<figcaption class="carousel-caption">trénink v herně</figcaption>
+				</figure>
+				<figure class="carousel-item">
+					<Image src={photo6} alt="Turnaj v Hradci nad Moravicí" width={360} height={240} />
+					<figcaption class="carousel-caption">turnaj v Hradci nad Moravicí</figcaption>
+				</figure>
+				<figure class="carousel-item">
+					<Image src={photo7} alt="Předávání cen" width={360} height={240} />
+					<figcaption class="carousel-caption">předávání cen</figcaption>
+				</figure>
+				<figure class="carousel-item">
+					<Image src={photo8} alt="Miroslav Vícha s mladým hráčem" width={180} height={240} />
+					<figcaption class="carousel-caption">Miroslav Vícha s mladým hráčem</figcaption>
+				</figure>
+			</div>
+		</section>
 
 		<Footer />
 	</body>
